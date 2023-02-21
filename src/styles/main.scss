@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import './base/_mixins.scss';
+@import './base/_variables.scss';
+@import '../pages/Login/_loginPage.scss';
+@import '../components/RegisterForm/_registerForm.scss';
+* {
+  font-family: 'Poppins', 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #3b3b3b;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+.cv {
+  color: rgb(252, 187, 68);
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.de {
+  font-weight: 600;
+  color: rgb(252, 62, 62);
+  margin-top: 5px;
+}
+
+.si {
+  color: #1dd39c;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.textarea {
+  width: 100%;
+  height: 460px;
+  border: none;
+  overflow-y: scroll;
+  font-size: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  padding-bottom: 10px;
+  outline: none;
+  resize: none;
+
+  @include tablet {
+    font-size: 0.9rem;
+    max-height: 300px;
+  }
+}
+
+button {
+  cursor: pointer;
+}
