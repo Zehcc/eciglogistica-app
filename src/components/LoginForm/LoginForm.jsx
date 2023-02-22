@@ -12,11 +12,10 @@ const LoginForm = () => {
   const onSubmit = (data) => {
     API.post('/users/login', data).then((response) => {
       if (response.status === 200) {
-        localStorage.setItem('userToken', response.data[0]);
-
+        localStorage.setItem('token', response.data[0]);
         setIsAuthUser(response.data[0]);
 
-        navigate(`/commerce`);
+        navigate(`/inventary`);
       } else {
         setError('Usuario o contraseña incorrectos');
       }

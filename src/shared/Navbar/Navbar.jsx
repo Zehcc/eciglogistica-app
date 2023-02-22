@@ -1,6 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  let navigate = useNavigate();
+  const logOut = () => {
+    localStorage.clear();
+    navigate('/login');
+  };
   return (
     <>
       <header class='navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow'>
@@ -9,8 +15,8 @@ const Navbar = () => {
         </a>
         <div class='navbar-nav'>
           <div class='nav-item text-nowrap'>
-            <a class='nav-link px-3' href='#'>
-              Salir
+            <a class='nav-link px-3' href='#' onClick={logOut}>
+              Logout
             </a>
           </div>
         </div>

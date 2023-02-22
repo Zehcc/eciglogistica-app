@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Product from '../../components/Product/Product';
 import Navbar from '../../shared/Navbar/Navbar';
 import { API } from '../../shared/services/api';
@@ -23,6 +24,16 @@ const InventaryPage = () => {
               <h1 class='h1'>Home</h1>
             </div>
             <h2>Productos</h2>
+            <Link to={'/add'}>
+              <a
+                href='editar.html'
+                type='button'
+                class='btn btn-secondary'
+                style={{ background: 'green' }}
+              >
+                Añadir producto
+              </a>
+            </Link>
             <div class='table-responsive'>
               <table class='table table-striped table-sm'>
                 <thead>

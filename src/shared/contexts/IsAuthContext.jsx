@@ -8,7 +8,7 @@ export const useIsAuthContext = () => {
 
 const IsAuthProvider = ({ children }) => {
   const [isAuthUser, setIsAuthUser] = useState(
-    localStorage.getItem('userToken') || null
+    localStorage.getItem('token') || null
   );
 
   return (

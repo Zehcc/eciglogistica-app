@@ -7,15 +7,15 @@ const Product = ({ product }) => {
   const [size, setSize] = useState([]);
   useEffect(() => {
     API.get(`/colours/${product.colour_id}`).then((response) => {
-      console.log(response.data[0]);
       setColour(response.data[0].name);
     });
     API.get(`/sizes/${product.size_id}`).then((response) => {
-      console.log(product.size_id);
       setSize(response.data[0].name);
     });
   }, []);
-
+  const deleteProduct = () => {
+    API.delete(`/products/${product.id}`).then(window.location.reload());
+  };
   return (
     <tr>
       <td>{product.id}</td>
@@ -33,7 +33,7 @@ const Product = ({ product }) => {
         </Link>
       </td>
       <td>
-        <button type='button' class='btn btn-danger'>
+        <button type='button' class='btn btn-danger' onClick={deleteProduct}>
           Eliminar
         </button>
       </td>

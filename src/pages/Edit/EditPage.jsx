@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import DetailedProduct from '../../components/DetailedProduct/DetailedProduct';
 import Navbar from '../../shared/Navbar/Navbar';
+import { API } from '../../shared/services/api';
 import Sidebar from '../../shared/Sidebar/Sidebar';
 
 const EditPage = () => {
+  const [detailedProduct, setDetailedProduct] = useState({});
+  const [colours, setColours] = useState([]);
+  const [sizes, setSizes] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    API.get(`/products/${id}`).then((response) => {
+      setDetailedProduct(response.data[0]);
+    });
+    API.get(`/colours`).then((response) => {
+      setColours(response.data);
+    });
+
+    API.get(`/sizes`).then((response) => {
+      setSizes(response.data);
+    });
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -16,7 +35,13 @@ const EditPage = () => {
             </div>
 
             <h2>Editar</h2>
-            <DetailedProduct />
+            {detailedProduct && (
+              <DetailedProduct
+                detailedProduct={detailedProduct}
+                colours={colours}
+                sizes={sizes}
+              />
+            )}
           </main>
         </div>
       </div>
