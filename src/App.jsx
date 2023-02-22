@@ -4,7 +4,9 @@ import {
   BrowserRouter as Router,
   Routes,
 } from 'react-router-dom';
+import DetailedProduct from './components/DetailedProduct/DetailedProduct';
 import CommercePage from './pages/Commerce/CommercePage';
+import EditPage from './pages/Edit/EditPage';
 import InventaryPage from './pages/Inventary/InventaryPage';
 import LoginPage from './pages/Login/LoginPage';
 import RegisterPage from './pages/Register/RegisterPage';
@@ -27,6 +29,7 @@ function App() {
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/inventary' element={<InventaryPage />} />
             <Route path='/commerce' element={<CommercePage />} />
+            <Route path='/edit/:id' element={<EditPage />} />
           </Routes>
         </Router>
       </IsAuthProvider>
